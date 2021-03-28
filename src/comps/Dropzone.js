@@ -13,8 +13,13 @@ const Dropzone = ({file, setFile}) => {
       <input {...getInputProps()} />
       {
         isDragActive ?
-          <p className="drag-text">Drop the files here ...</p> :
-          <p className="drag-text">Drag 'n' drop some files here, or click to select files or click on<strong>(+)</strong></p>
+          <p className="drag-text">Drop the files here ...</p> : 
+          <div>
+          <p className="drag-text">Drag & drop files here</p>
+          <p className="drag-text">OR</p>
+          <p className="drag-text">Click to browse files</p>
+          </div>
+          
       }
     </div>
   )
