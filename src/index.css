@@ -118,3 +118,18 @@ label:hover{
   box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
   border: 3px solid white; 
 }
+
+/*Drag n Drop */
+
+.drag{
+  height: 50px;
+  max-width: 500px;
+  width: 60vw;
+  border: 3px solid black;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.drag-text{
+  margin: 5px auto;
+}
