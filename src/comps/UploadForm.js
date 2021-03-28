@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Dropzone from './Dropzone';
 import ProgressBar from "./ProgressBar"
 
 
@@ -23,6 +24,8 @@ const UploadForm = () => {
 
     
     return(
+        <>
+        <Dropzone file={file} setFile={setFile} />
         <form>
           <label>
           <input type="file" onChange={changeHandler} multiple/>
@@ -34,6 +37,7 @@ const UploadForm = () => {
             {file && <ProgressBar file={file} setFile={setFile}/>}
             </div>
         </form>
+        </>
     )
 }
 
