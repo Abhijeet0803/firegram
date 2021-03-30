@@ -13,7 +13,7 @@ const useStorage = (images) => {
         images.map(file => {
             const storageRef = projectStorage.ref().child(`${file.name}`);
             const collectionRef = projectFirestore.collection('images');
-
+            const imgName= file.name;
             storageRef.put(file).on('state_changed', (snap) =>{
                 let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
                 setProgress(percentage);
@@ -23,9 +23,8 @@ const useStorage = (images) => {
             }, async () => {
                 const url = await storageRef.getDownloadURL();
                 const createdAt = timestamp();
-                collectionRef.add({url, createdAt});  
+                collectionRef.add({imgName, url, createdAt});  
                 setUrl(url);
-                
             })
         })
         

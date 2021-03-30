@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import useFireStore from '../hooks/useFirestore';
 
-const ImageGrid = ({setSelectedImg}) => {
+const ImageGrid = ({setSelectedImg , setDisplayImgArray}) => {
 
     const {docs} = useFireStore('images');
     const [end, setEnd] = useState(10);
@@ -43,17 +43,17 @@ const ImageGrid = ({setSelectedImg}) => {
     
 
     return (
-        <div className="img-grid">
+        <div className="img-grid" onLoad={() => setDisplayImgArray(displayedImg)}>
         { displayedImg && displayedImg.map((doc, index) => {
             if(displayedImg.length === index+1){
                 return(
-                <div className="img-wrap" key={doc.id} onClick={() => setSelectedImg(doc.url) } ref={setElement}>
+                <div className="img-wrap" key={doc.id} onClick={() => setSelectedImg(doc) } ref={setElement}>
                 <img src={doc.url} alt="pic" />
             </div>)
             }
             else{
                 return(
-                <div className="img-wrap" key={doc.id} onClick={() => setSelectedImg(doc.url) }>
+                <div className="img-wrap" key={doc.id} onClick={() => setSelectedImg(doc) }>
                 <img src={doc.url} alt="pic" />
             </div>)
             }  
