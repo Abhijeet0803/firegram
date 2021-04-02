@@ -3,7 +3,6 @@ import {useDropzone} from 'react-dropzone'
 
 const Dropzone = ({file, setFile}) => {
   const onDrop = useCallback(files => {
-    // Do something with the files
     setFile(files);
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})

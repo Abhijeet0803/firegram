@@ -13,9 +13,9 @@ const Modal = ({selectedImg, setSelectedImg, displayImgArray}) => {
     const handlePrevClick = (e) => {
         setSelectedImg(prev => {
             const imgId = prev.id;
-            const index = displayImgArray.findIndex(img => img.id === imgId);
-           // console.log(index);
-            const newImg = displayImgArray[index-1];
+            let index = displayImgArray.findIndex(img => img.id === imgId);
+           // console.log(index); 
+            const newImg = displayImgArray[(index-1)>0 ? index-1:displayImgArray.length-1];
             return(newImg);
         })
     }
@@ -23,9 +23,9 @@ const Modal = ({selectedImg, setSelectedImg, displayImgArray}) => {
     const handleNextClick = (e) => {
         setSelectedImg(prev => {
             const imgId = prev.id;
-            const index = displayImgArray.findIndex(img => img.id === imgId);
+            let index = displayImgArray.findIndex(img => img.id === imgId);
             //console.log(index);
-            const newImg = displayImgArray[index+1];
+            const newImg = displayImgArray[(index+1)%displayImgArray.length];
             return(newImg);
         })
     }
@@ -34,8 +34,11 @@ const Modal = ({selectedImg, setSelectedImg, displayImgArray}) => {
         <div className="backdrop" onClick={handleClick}>
             <p>{selectedImg.imgName}</p>
             <img src={selectedImg.url} alt= "img" />
-            <button type="button" onClick={handlePrevClick}>Prev</button>
-            <button type="button" onClick={handleNextClick}>Next</button>
+            <div className="btn">
+                <button type="button" onClick={handlePrevClick}>Prev</button>
+                <button type="button" onClick={handleNextClick}>Next</button>
+            </div>
+            
         </div>
     )
 }

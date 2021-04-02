@@ -4,7 +4,7 @@ import useFireStore from '../hooks/useFirestore';
 const ImageGrid = ({setSelectedImg , setDisplayImgArray}) => {
 
     const {docs} = useFireStore('images');
-    const [end, setEnd] = useState(10);
+    const [end, setEnd] = useState(15);
     const [element, setElement] = useState(null);
     const [displayedImg, setDisplayedImg] = useState(docs);
     
@@ -13,7 +13,7 @@ const ImageGrid = ({setSelectedImg , setDisplayImgArray}) => {
             const last = entries[0];
 
             if(last.isIntersecting){
-                setEnd(prev => prev+10);
+                setEnd(prev => prev+15);
             }
         }, {threshold:1})
     );
@@ -69,54 +69,3 @@ export default ImageGrid;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import useFireStore from '../hooks/useFirestore';
-
-// const ImageGrid = ({setSelectedImg}) => {
-
-//     const {docs} = useFireStore('images');
-//     console.log(docs);
-
-//     return (
-//         <div className="img-grid">
-//         { docs && docs.map(doc => (
-//             <div className="img-wrap" key={doc.id} onClick={() => setSelectedImg(doc.url) }>
-//                 <img src={doc.url} alt="pic" />
-//             </div>
-//         ))
-//         }
-//         </div>
-//     )
-// }
-
-// export default ImageGrid;

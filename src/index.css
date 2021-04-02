@@ -1,27 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
 
-:root{
-  --primary: #efb6b2;
-  --secondary: #4e4e4e;
-  --error: #ff4a4a;
-}
-
 /* base styles & title */
 body{
   font-family: "Noto Serif";
-  color: var(--secondary);
+  color: #4e4e4e;
 }
 .App{
-  max-width: 960px;
-  margin: 0 auto;
+  margin: 0 48px;
 }
 .title h1{
-  color: var(--primary);
+  color: #efb6b2;
   font-size: 1.2rem;
   letter-spacing: 2px;
   font-weight: normal;
 }
-.title h2, .title p{
+.title h2{
   text-align: center;
 }
 .title h2{
@@ -29,45 +22,25 @@ body{
   font-size: 2.6rem;
 }
 
-/* upload form styles */
-form{
-  margin: 30px auto 10px;
+/*Drag n Drop */
+
+.drag{
+  max-width: 500px;
+  width: 60vw;
+  border: 3px dotted gray;
   text-align: center;
+  margin: 10px auto 50px;
 }
-label input{
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-label{
-  display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid var(--primary);
-  border-radius: 50%;
-  margin: 10px auto;
-  line-height: 30px;
-  color: var(--primary);
-  font-weight: bold;
-  font-size: 24px;
-}
-label:hover{
-  background: var(--primary);
-  color: white;
-}
-.output{
-  height: 60px;
-  font-size: 0.8rem;
-}
-.error{
-  color: var(--error);
+
+.drag-text{
+  margin: 5px auto;
 }
 
 
 /* progress bar styles */
 .progress-bar{
   height: 5px;
-  background: var(--primary);
+  background: #efb6b2;
   margin-top: 20px;
 } 
 
@@ -79,6 +52,25 @@ label:hover{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px 40px;
+}
+
+@media(max-width: 768px) {
+  .img-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+  .App {
+    margin: 0 24px;
+  }
+  
+}
+
+@media(max-width: 420px) {
+  .img-grid{
+    grid-template-columns: 1fr;
+  }
+  .App {
+    margin: 0 12px;
+  }
 }
 
 .img-wrap{
@@ -113,9 +105,9 @@ label:hover{
 
 .backdrop img{
   display: block;
-  max-width: 60%;
-  max-height: 80%;
-  margin: 60px auto;
+  max-width: 60vw;
+  max-height: 80vh;
+  margin: 30px auto;
   box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
   border: 3px solid white; 
 }
@@ -125,20 +117,11 @@ label:hover{
 
 }
 
-button {
-  margin: 10px 45vw;
-}
-
-/*Drag n Drop */
-
-.drag{
-  max-width: 500px;
-  width: 60vw;
-  border: 3px dotted gray;
-  text-align: center;
-  margin: 10px auto 50px;
-}
-
-.drag-text{
-  margin: 5px auto;
+.btn {
+  margin: 10px auto;
+  max-width: 60%;
+  display: flex;
+  flex-direction: ;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
